@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,  
+  "name": "MyQRcode",
+  "version": "0.1",
+  "author": "wdg",
+  "description": "generate qrcode for current url",
+  "permissions": [ 
+    "tabs",  
+    "storage", 
+    "unlimitedStorage",
+    "contextMenus",                                 
+    "activeTab"                                     
+  ],                                                
+  "icons": {
+    "16": "icons/logo128.png",
+    "48": "icons/logo128.png",
+    "128": "icons/logo128.png" 
+  },                                                 
+  "minimum_chrome_version": "20",                                                                                                                 
+  "browser_action": {                               
+    "default_icon": { 
+      "16": "icons/logo128.png",
+      "48": "icons/logo128.png",
+      "128": "icons/logo128.png"                                                         
+    },            
+    "default_title": "generate qrcode for current url",                     
+    "default_popup": "pop.html"            
+  },
+  "options_ui": {
+    "open_in_tab": true, 
+    "page": "options.html"
+  }  
+}
