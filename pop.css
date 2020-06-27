@@ -1,4 +1,4 @@
-
+/*options button*/
 #options {
   margin-left:15px;
   width: 15px;
@@ -11,9 +11,30 @@
   flex-shrink: 0; }
 
 #options:hover {
-  opacity: 1; }
+  opacity: 1; 
+}
 
+/*read button*/
+#readButton {
+    float:left;
+    width: 20px;
+    margin-top: -3px;
+    margin-left: 15px;
+    background-image: url(icons/img.svg);
+    background-repeat: no-repeat;
+    opacity: 0.5;
+}
 
+input {
+    width: 20px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+
+#readButton:hover {
+    opacity: 1; 
+}
 
 
 

@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html >
-<head>
-<title>QRCode</title>
-<!--qr generate-->
-<script type="text/javascript" src="libs/qrcode.min.js"></script>
-<!--qr read-->
+<html>
+ <head>
+  <title>QRcode read</title>
+ </head>
+ <body class="body">
 <script type="text/javascript" src="libs/jsqrcode/grid.js"></script>
 <script type="text/javascript" src="libs/jsqrcode/version.js"></script>
 <script type="text/javascript" src="libs/jsqrcode/detector.js"></script>
@@ -23,17 +21,52 @@
 <script type="text/javascript" src="libs/jsqrcode/alignpat.js"></script>
 <script type="text/javascript" src="libs/jsqrcode/databr.js"></script>
 
-<script type="text/javascript" src="./mylib.js"></script>
 <link rel="stylesheet" type="text/css" href="pop.css">
-</head>
-<body>
-<div id="qrcode"></div>
+
+<script type="text/javascript">
+function getObjectURL(file){
+    return window.webkitURL.createObjectURL(file)  ;
+}
+function readFiles(files) {
+    console.log(file);
+    //console.log("xxxx")
+    if (files.length) {
+        var file = files[0];
+        qrcode.decode(getObjectURL(file));
+        qrcode.callback = function(imgMsg){
+            //console.log(imgMsg);
+            constrict="^(http|https)://.*"
+            var reg = new RegExp(constrict)
+            if(imgMsg.trim().search(reg) == 0) {
+                window.open(imgMsg, "_blank")
+            } else {
+                alert(imgMsg);
+            }
+        }
+        
+    }
+}
+
+</script>
 <div>
-    <button id="options" title="more"></button>
-    <a id="readButton">
-        <input id="read" type="file" title="read image"></input>
-    </a>
+<button id="options" title="more"></button>
+<div id="readButton">
+    <input id="read" type="file" title="read image"></input>
 </div>
-</body>
-<script type="text/javascript" src="./pop.js"></script>
+</div>  
+<script>
+var ele2 = document.getElementById("read");
+ele2.addEventListener("change", 
+function(){
+    var files=document.querySelector('#read').files;
+    readFiles(files);
+}, 
+false); 
+  
+
+</script>
+
+
+
+ </body>
 </html>

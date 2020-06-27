@@ -30,3 +30,26 @@ function optionsMakeCode (textId, codeId, size) {
     document.getElementById(codeId).innerHTML ="";
 	makeCode(codeId, size, elText.value);
 }
+
+function getObjectURL(file){
+    return window.webkitURL.createObjectURL(file)  ;
+}
+function readFiles(files) {
+    // console.log(file);
+    // console.log("xxxx")
+    if (files.length) {
+        var file = files[0];
+        qrcode.decode(getObjectURL(file));
+        qrcode.callback = function(imgMsg){
+            // console.log(imgMsg);
+            constrict="^(http|https)://.*";
+            var reg = new RegExp(constrict)
+            if(imgMsg.trim().search(reg) == 0) {
+                window.open(imgMsg, "_blank");
+            } else {
+                alert(imgMsg);
+            }
+        }
+        
+    }
+}
