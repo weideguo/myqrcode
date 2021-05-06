@@ -1,6 +1,6 @@
 # myqrcode  
-![MIT LICENSE](https://img.shields.io/github/license/zouzhicun/myqrcode)
-![JS](https://img.shields.io/github/languages/top/zouzhicun/myqrcode)
+![MIT LICENSE](https://img.shields.io/github/license/weideguo/myqrcode)
+![JS](https://img.shields.io/github/languages/top/weideguo/myqrcode)
 
 
 A simple chrome extendsion, to generate QRcode for current url and for any string, and scan QRcode.
